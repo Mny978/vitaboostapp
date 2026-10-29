@@ -1,0 +1,6 @@
+{
+  "name": "VitaBoost NutriApp - Track & Treat AI Dietetics",
+  "description": "Personalized clinical nutrition, 3-day Indian & global meal planning, visual plate scanner, lab findings analysis, and AI dietetic assistance with zero 404 errors.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

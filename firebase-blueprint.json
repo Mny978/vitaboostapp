@@ -1,0 +1,61 @@
+{
+  "entities": {
+    "userProfile": {
+      "title": "User Profile",
+      "description": "User clinical biometrics, personal metrics, dietary preferences, and medical conditions",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "age": { "type": "number" },
+        "gender": { "type": "string", "enum": ["Male", "Female", "Other"] },
+        "weight": { "type": "number" },
+        "height": { "type": "number" },
+        "activity": { "type": "string" },
+        "dietaryPreference": { "type": "string" },
+        "goal": { "type": "string" },
+        "medicalConditions": { "type": "string" },
+        "allergies": { "type": "string" },
+        "likesDislikes": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name", "dietaryPreference", "goal"]
+    },
+    "dailyTracking": {
+      "title": "Daily Tracking",
+      "description": "Daily nutrition, meal logs, water intake, and fruit/veg counts",
+      "type": "object",
+      "properties": {
+        "date": { "type": "string" },
+        "waterIntakeMl": { "type": "number" },
+        "fruitVegServings": { "type": "number" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["date", "waterIntakeMl", "fruitVegServings"]
+    },
+    "dietPlan": {
+      "title": "Diet Plan",
+      "description": "Personalized 3-day clinical diet plan",
+      "type": "object",
+      "properties": {
+        "createdDate": { "type": "string" },
+        "dietitianGeneralGuidance": { "type": "string" },
+        "hydrationStrategy": { "type": "string" }
+      },
+      "required": ["createdDate"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "userProfile",
+      "description": "User profile document keyed by auth UID"
+    },
+    "/users/{userId}/tracking/{date}": {
+      "schema": "dailyTracking",
+      "description": "User daily tracking records"
+    },
+    "/users/{userId}/plans/{planId}": {
+      "schema": "dietPlan",
+      "description": "User custom diet plan records"
+    }
+  }
+}
